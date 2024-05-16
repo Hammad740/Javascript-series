@@ -101,3 +101,10 @@ const value1 = num1 == num2;
 const value2 = num1 === num2;
 console.log(value1);
 console.log(value2);
+
+//? Ternary operator
+
+//? condition?(runs if true):(runs if false)
+
+const value = 1 < 0;
+value ? console.log('value is true') : console.log('value is false');

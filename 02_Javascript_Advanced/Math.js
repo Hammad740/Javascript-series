@@ -50,3 +50,5 @@ console.log(Math.abs(-4.7));
 
 //Math.sqrt(x) returns the square root of x
 console.log(Math.sqrt(64));
+
+//? Reference for date object -> https://www.w3schools.com/js/js_dates.asp

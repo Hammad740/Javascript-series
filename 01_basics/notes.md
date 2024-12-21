@@ -354,3 +354,82 @@ Using `===` (strict equality) is generally preferred over `==` to avoid unexpect
 
 - **Concatenation**: Joining strings using `+` or template literals.
 - **Type Coercion**: JavaScript automatically or manually converts one data type to another. Implicit coercion happens automatically, while explicit coercion requires you to use functions like `Number()`, `String()`, etc.
+
+In JavaScript, `==` and `===` are comparison operators, but they behave differently when it comes to type comparison.
+
+### `==` (Loose Equality)
+
+The `==` operator checks for **equality** between two values **after performing type coercion** (i.e., it converts the operands to the same type if they are not already). This means that it tries to make the types match before comparing the values.
+
+#### Example:
+
+```js
+console.log(5 == '5'); // true
+```
+
+- Here, JavaScript converts the string `"5"` to the number `5` before comparing. Since both values are now `5`, the comparison returns `true`.
+
+However, this behavior can sometimes lead to unexpected results because type coercion isn't always intuitive.
+
+#### Example of an unexpected result:
+
+```js
+console.log(false == 0); // true
+console.log('' == 0); // true
+```
+
+In both cases, JavaScript converts both sides to numbers, resulting in `0 == 0`, which is `true`.
+
+### `===` (Strict Equality)
+
+The `===` operator, also called **strict equality**, compares both the **value** and the **type** of the operands. It does **not** perform type coercion, meaning the values must be of the same type and value for it to return `true`.
+
+#### Example:
+
+```js
+console.log(5 === '5'); // false
+```
+
+- In this case, JavaScript does not convert the types. Since `5` is a number and `"5"` is a string, the comparison returns `false`.
+
+#### Example of strict equality:
+
+```js
+console.log(5 === 5); // true
+```
+
+Here, both the value and type are the same, so it returns `true`.
+
+### Key Differences
+
+1. **`==` (Loose Equality)**:
+
+   - Performs type coercion before comparing.
+   - Compares values after converting them to the same type.
+   - Can lead to unintuitive results.
+
+2. **`===` (Strict Equality)**:
+   - Does not perform type coercion.
+   - Compares both the value and the type.
+   - More predictable and generally preferred in most cases.
+
+### Examples:
+
+1. Loose Equality:
+
+   ```js
+   console.log(1 == '1'); // true (because '1' is coerced to 1)
+   console.log(true == 1); // true (because true is coerced to 1)
+   console.log(null == undefined); // true (null and undefined are loosely equal)
+   ```
+
+2. Strict Equality:
+   ```js
+   console.log(1 === '1'); // false (different types: number vs string)
+   console.log(true === 1); // false (different types: boolean vs number)
+   console.log(null === undefined); // false (null and undefined are different types)
+   ```
+
+### Best Practice:
+
+- **Always use `===` (strict equality)** unless there’s a specific reason to use `==`. This avoids unexpected behavior caused by type coercion and makes the code more predictable.

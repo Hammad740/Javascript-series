@@ -47,3 +47,12 @@ console.log(parseInt(str));
 
 let str2 = '100.56';
 console.log(parseFloat(str2));
+
+console.log(isNaN('hammad')); // true
+console.log(isNaN('100')); // false
+
+if (NaN == NaN) {
+  console.log('both are equal');
+} else {
+  console.log('both are not equal');
+}

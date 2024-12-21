@@ -138,3 +138,118 @@ Here are the main data types:
 | Hoisting           | Yes (initialized as `undefined`)                      | Yes (but not initialized)        | Yes (but not initialized)                              |
 | Temporal Dead Zone | No                                                    | Yes                              | Yes                                                    |
 | Use case           | Use with caution, often replaced by `let` and `const` | Used when reassignment is needed | Used for constants or objects that won't be reassigned |
+
+In JavaScript, **truthy** and **falsy** values determine how values are evaluated in a Boolean context, such as inside conditionals (`if` statements, loops, etc.).
+
+### Falsy Values
+
+A **falsy** value is a value that evaluates to `false` when used in a Boolean context. There are only a few falsy values in JavaScript:
+
+1. **`false`**: The Boolean `false` itself is falsy.
+
+   ```js
+   if (false) {
+     // This block won't run
+   }
+   ```
+
+2. **`0`**: The number `0` is falsy.
+
+   ```js
+   if (0) {
+     // This block won't run
+   }
+   ```
+
+3. **`""` (empty string)**: An empty string is falsy.
+
+   ```js
+   if ('') {
+     // This block won't run
+   }
+   ```
+
+4. **`null`**: Represents the absence of any value and is falsy.
+
+   ```js
+   if (null) {
+     // This block won't run
+   }
+   ```
+
+5. **`undefined`**: A variable that has been declared but not assigned a value is falsy.
+
+   ```js
+   let x;
+   if (x) {
+     // This block won't run
+   }
+   ```
+
+6. **`NaN`**: Stands for "Not-a-Number" and is falsy.
+   ```js
+   if (NaN) {
+     // This block won't run
+   }
+   ```
+
+### Truthy Values
+
+A **truthy** value is any value that is not falsy. This means that almost any value in JavaScript is truthy, except for the falsy values listed above.
+
+Examples of truthy values:
+
+1. **Non-zero numbers**: Any number other than `0`, including negative numbers.
+
+   ```js
+   if (42) {
+     // This block will run
+   }
+   ```
+
+2. **Non-empty strings**: Any string that is not empty.
+
+   ```js
+   if ('Hello') {
+     // This block will run
+   }
+   ```
+
+3. **Arrays and objects**: Even empty arrays (`[]`) and objects (`{}`) are truthy.
+
+   ```js
+   if ([]) {
+     // This block will run
+   }
+
+   if ({}) {
+     // This block will run
+   }
+   ```
+
+4. **`true`**: The Boolean `true` is obviously truthy.
+   ```js
+   if (true) {
+     // This block will run
+   }
+   ```
+
+### Example in Conditionals
+
+```js
+let value = 0;
+
+if (value) {
+  console.log('This is truthy!');
+} else {
+  console.log('This is falsy!');
+}
+// Output: "This is falsy!" because 0 is falsy
+```
+
+### Summary
+
+- **Falsy values**: `false`, `0`, `""`, `null`, `undefined`, `NaN`
+- **Truthy values**: Anything that is not falsy (e.g., non-zero numbers, non-empty strings, arrays, objects, `true`).
+
+In JavaScript, you can rely on these truthy and falsy rules when working with conditionals and logical operators (`&&`, `||`, `!`).

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Capturing</title>
+    <style>
+      #grandParent {
+        background-color: red;
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        padding: 45px;
+        border: 1px solid black;
+      }
+      #parent {
+        background-color: green;
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        padding: 30px;
+        border: 1px solid black;
+      }
+      #child {
+        background-color: blue;
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        padding: 25px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="grandParent">
+      <div id="parent">
+        <div id="child"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.getElementById('grandParent').addEventListener(
+      'click',
+      function () {
+        console.log('grandParent is clicked!')
+      },
+      true
+    )
+
+    document.getElementById('parent').addEventListener(
+      'click',
+      function () {
+        console.log('parent is clicked!')
+      },
+      true
+    )
+
+    document.getElementById('child').addEventListener(
+      'click',
+      function () {
+        console.log('child is clicked!')
+      },
+      true
+    )
+  </script>
+</html>

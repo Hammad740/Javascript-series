@@ -58,3 +58,19 @@ let obj2 = obj1;
 console.log(obj2);
 obj2.job = 'student';
 console.log(obj1);
+
+// object constructor function
+
+function Person(first, last, age, eye) {
+  this.first = first;
+  this.last = last;
+  this.age = age;
+  this.eye = eye;
+}
+
+const myFather = new Person('Fahim', 'Ahmed', 51, 'blue');
+const myMother = new Person('Arshi', 'Nigar', 50, 'black');
+console.log(myFather);
+console.log(myMother);
+console.table(myFather);
+console.table(myMother);

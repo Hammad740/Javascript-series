@@ -20,3 +20,13 @@ function displayData() {
   console.log('Displaying data');
 }
 fetchData(displayData);
+
+// hof returning another function
+function multiplier(factor) {
+  return function (num) {
+    return num * factor;
+  };
+}
+
+const double = multiplier(2);
+console.log(double(5));
